@@ -46,7 +46,7 @@ body {
 
 @media (max-width: 767px) {
   #main-content .row {
-    margin: auto 55px;
+    margin: auto 50px;
   }
 
   #menu-content h3 {
@@ -55,10 +55,6 @@ body {
 
   #menu-content p {
     margin: 15px;
-  }
-
-  div#collapsable-nav {
-    /*display: block !important;*/
   }
 }
 
