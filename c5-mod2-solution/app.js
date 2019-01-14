@@ -15,26 +15,12 @@ function ToBuyController(ShoppingListCheckOffService) {
     ShoppingListCheckOffService.bought(idx);
   };
 
-  to_buy_ctrl.empty = function () {
-    if(to_buy_ctrl.items.length < 1) {
-      return true;
-    }
-    return false;
-  };
-
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
   var bought_ctrl = this;
   bought_ctrl.items = ShoppingListCheckOffService.getBoughtItems();
-
-  bought_ctrl.empty = function () {
-    if (bought_ctrl.items.length > 0) {
-      return false;
-    }
-    return true;
-  };
 
 }
 
