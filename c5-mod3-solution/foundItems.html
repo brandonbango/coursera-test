@@ -1,0 +1,11 @@
+<div class="col-md-12">
+  <div class="error" ng-if="ctrl.isEmpty">Nothing found</div>
+  <table>
+    <tr ng-repeat="item in ctrl.items">
+      <td>{{item.name}}</td>
+      <td>{{item.short_name}}</td>
+      <td>{{item.description}}</td>
+      <td><button ng-click="ctrl.onRemove({index: $index});">Don't want this one!</button></td>
+    </tr>
+  </table>
+</div>
