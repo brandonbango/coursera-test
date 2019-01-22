@@ -1,0 +1,12 @@
+body {
+  font-size: 1.0em;
+}
+
+ul.categoriesList li {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tabs {
+  font-size: 1.2em;
+}
