@@ -31,9 +31,10 @@ function NarrowItDownController(MenuSearchService) {
   ctrl.search = function (searchTerm) {
     if(searchTerm == "") {
       ctrl.isEmpty = true;
+      ctrl.found = [];
     } else {
       var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-    
+
       promise.then(function (response) {
         ctrl.found = response;
         ctrl.isEmpty = (ctrl.found.length == 0) ? true : false;
@@ -61,7 +62,7 @@ function MenuSearchService($http) {
 
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        
+
         if(item.description.includes(searchTerm)) {
           foundItems.push(item);
         }
