@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h2>My Info</h2>
+
+      <div ng-if="userinfoCtrl.isUserRegistered()">
+        <p>First name: {{ userinfoCtrl.userInfo.firstname }}</p>
+        <p>Last name: {{ userinfoCtrl.userInfo.lastname }}</p>
+        <p>Email: {{ userinfoCtrl.userInfo.email }}</p>
+        <p>Phone: {{ userinfoCtrl.userInfo.phone }}</p>
+
+        <div class="menu-item-tile col-md-6">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="menu-item-photo">
+                <div>{{userinfoCtrl.userInfo.fav.short_name}}</div>
+                <img class="img-responsive" width="250" height="150" ng-src="{{userinfoCtrl.basePath}}/images/{{userinfoCtrl.userInfo.fav.short_name}}.jpg" alt="{{userinfoCtrl.userInfo.fav.name}}">
+              </div>
+              <div class="menu-item-price">{{userinfoCtrl.userInfo.fav.price_small | currency}}<span> {{userinfoCtrl.userInfo.fav.small_portion_name}}</span> {{userinfoCtrl.userInfo.fav.price_large | currency}} <span>{{userinfoCtrl.userInfo.fav.large_portion_name}}</span></div>
+            </div>
+            <div class="menu-item-description col-sm-7">
+              <h3 class="menu-item-title">{{userinfoCtrl.userInfo.fav.name}}</h3>
+              <p class="menu-item-details">{{userinfoCtrl.userInfo.fav.description}}</p>
+            </div>
+          </div>
+          <hr class="visible-xs">
+        </div>
+      </div>
+
+      <div ng-if="!userinfoCtrl.isUserRegistered()">
+        Not Signed Up Yet. <a ui-sref="public.sign-up">Sign up Now!</a>
+      </div>
+    </div>
+  </div>
+</div>

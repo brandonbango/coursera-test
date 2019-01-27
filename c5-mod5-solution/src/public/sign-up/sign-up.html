@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <h2>Registration</h2>
+
+      <fieldset>
+        <form name='regForm' novalidate>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="firstname" placeholder="First name" ng-model="signupCtrl.firstname" required>
+              <span class="form-text"
+                ng-if="(regForm.firstname.$error.required) && regForm.firstname.$touched">
+                First name is required
+              </span>
+          </div>
+
+          <div class="form-group">
+            <input type="text"class="form-control" name="lastname" placeholder="Last name" ng-model="signupCtrl.lastname" required>
+              <span class="form-text"
+                ng-if="(regForm.lastname.$error.required) && regForm.lastname.$touched">
+                Last name is required
+              </span>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" ng-model="signupCtrl.email" required>
+            <span class="form-text" ng-if="regForm.email.$invalid && regForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####" ng-model="signupCtrl.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span class="form-text" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="favorite" placeholder="Favorite menu item" ng-model="signupCtrl.fav" required>
+            <span class="form-text" ng-if="signupCtrl.favError">No such menu number exists</span>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-warning" ng-disabled="regForm.$invalid" ng-click="signupCtrl.submit()">
+              Submit
+            </button>
+          </div>
+        </form>
+      </fieldset>
+
+      <div ng-if="signupCtrl.completed">Your information has been saved</div>
+    </div>
+  </div>
+</div>
